@@ -1,0 +1,26 @@
+select.sort {
+    width: 200px;
+    height: 34px;
+    background: #7ee6dc;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+}
+.sortBy{
+    padding-left: 20px;
+}
+ul li{
+    list-style: none;
+    border: 1px solid lightblue;
+    padding: 5px;
+    background: #e0edf1;
+}
+ul{
+    padding: 0px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.bold{
+    font-weight: bold;
+}

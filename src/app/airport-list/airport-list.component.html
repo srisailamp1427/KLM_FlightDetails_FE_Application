@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="page-header">
+        <h1>
+          Airport List
+        </h1>
+      </div>
+    </div>
+    <a routerLink="/flightsearch"><button class="btn btn-success pull-right" > <h4>Fare Search</h4></button></a>
+    <div class="sortBy">
+      <span >SORT BY</span>
+      <select class="sort" (change)="setSortOption($event.target.value)">
+          <option value="0">Select</option>
+          <option *ngFor="let option of sortOptions" value={{option}}>
+              {{option}}
+          </option>
+      </select>
+    </div>
+    <ul>
+      <li *ngFor="let user of airportList | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+        <h5 class="bold">{{ user.code }}</h5>
+        <h5>{{ user.name }}</h5>
+        <h5>{{ user.description }}</h5>
+      </li>
+    </ul>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="row page-header">
+        <div class="col-md-8">
+          <h1>
+            Fares  Details
+          </h1>
+        </div>
+        <div class="col-md-4">
+        <a routerLink="/dashboard"><button class="btn btn-success pull-right" > <h4>MoreDetails to Dashboard</h4></button></a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-sm-5">
+      <div class="form-group">
+        <input list="origin" class="form-control" placeholder="Enter Origin" [(ngModel)]="origin" (ngModelChange)="checkOrigin($event)" />
+        <ul *ngIf = "origin !== undefined && showOriginList === true" >
+            <li *ngFor="let c of airportCodeList | filter : origin" (click)="setOrigin(c)">
+              {{c}}
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <div class="form-group">
+        <input list="destination" class="form-control" placeholder="Enter Destination" [(ngModel)]="destination" (ngModelChange)="checkDestination($event)" />
+        <ul *ngIf = "destination !== undefined && showDestinationList === true" >
+          <li *ngFor="let c of airportCodeList | filter : destination" (click)="setDestination(c)">
+            {{c}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-2">
+      <button type="button" class="btn btn-success btn-block" (click)="getFareOffer()">
+          SEARCH
+        </button>
+    </div>
+  </div>
+  <div class="row" *ngIf="availableResponse">
+    <div class="col-md-5 col-sm-5">
+      <span><h2>{{faresDetails?.origin?.name}}<h5>({{faresDetails?.origin?.code}})</h5></h2></span>
+      <p>
+        {{faresDetails?.origin?.description}}
+      </p>
+    </div>
+    <div class="col-md-2 col-sm-2" style="padding-top: 5%">Fare: {{faresDetails?.fare?.amount | currency: faresDetails?.fare?.currency}}
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <span><h3>{{faresDetails?.destination?.name}}<h5>({{faresDetails?.destination?.code}})</h5></h3></span>
+      <p>
+        {{faresDetails?.destination?.description}}
+      </p>
+    </div>
+
+  </div>
+ 
+</div>

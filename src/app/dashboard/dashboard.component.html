@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="page-header">
+          <h1>
+           METRICS DASHBOARD
+          </h1>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-12 col-sm-12 req-con">
+      <div class="req">
+          {{this.appConstants.requestsProcessed}} : {{dashboardDetails.totalNoOfReq}}
+      </div>
+      <div class="req">
+          {{this.appConstants.requestsWithOkResponse}} : {{dashboardDetails.noOfResp200}}
+      </div>
+      <div class="req">
+          {{this.appConstants.requestsWith4XXResponse}} : {{dashboardDetails.noOfResp404}}
+      </div>
+      <div class="req">
+          {{this.appConstants.requestsWith5XXResponse}} : {{dashboardDetails.noOfResp500}}
+      </div>
+      <div class="req">
+          {{this.appConstants.averageResponseTime}} : {{dashboardDetails.avgRespTimeAllReq}}
+      </div>
+      <div class="req">
+          {{this.appConstants.minResponse}} : {{dashboardDetails.minRespTime}}
+      </div>
+      <div class="req">
+          {{this.appConstants.maxResponse}} : {{dashboardDetails.maxRespTime}}
+      </div>
+    </div>
+  </div>
